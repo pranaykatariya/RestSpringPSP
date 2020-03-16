@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.psp.model.Aptitude;
 import com.example.psp.model.Response;
 import com.example.psp.model.Technical;
 
@@ -40,5 +41,11 @@ public class TechnicalController
 		technicalService.calculateMarks(list);
 		//System.out.println(list.get(0).getCorrectOption());
 		//technicalService.storeQuestions(list);
+	}
+	
+	@PostMapping("storeTechnicalQuestions")
+	public void storeTechnicalQuestions(@RequestBody List<Technical> list)
+	{
+		technicalService.storeTechnicalQuestions(list);
 	}
 }

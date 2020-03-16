@@ -8,6 +8,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.psp.model.Aptitude;
 import com.example.psp.model.Response;
 import com.example.psp.model.Technical;
 
@@ -46,6 +47,12 @@ public class TechnicalService
 	public List<Technical> getAllQuestions() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
+	}
+	
+	//Store question to the database
+	public void storeTechnicalQuestions(List<Technical> list)
+	{
+		repo.saveAll(list);
 	}
 	
 	public void calculateMarks(List<Response> list)
