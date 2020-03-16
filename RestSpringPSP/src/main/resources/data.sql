@@ -1,0 +1,2 @@
+insert into Student values('pranaykatariya1@gmail.com',80,70.31,84,86,'Pranay','Male','Katariya','7447830536','123456');
+insert into Student values('pranaykatariya4@gmail.com',80,70.31,84,86,'Pranay','Male','Katariya','8329375592','123456');
