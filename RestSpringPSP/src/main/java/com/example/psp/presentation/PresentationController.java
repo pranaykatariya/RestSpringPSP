@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.psp.model.Presentation;
@@ -30,7 +31,7 @@ public class PresentationController
 	
 	
 	@PostMapping("storePresentationQuestions")
-	public void storeQuestions(List<Presentation> list)
+	public void storeQuestions(@RequestBody List<Presentation> list)
 	{
 		PresentationService.storeQuestions(list);
 	}
