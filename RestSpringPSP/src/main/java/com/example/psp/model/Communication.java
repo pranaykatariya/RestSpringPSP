@@ -11,21 +11,21 @@ public class Communication
 	@Id
 	int srNo;
 	@Size(max = 512)
-	@NotNull
+	
 	String question;
 	@Size (max = 512)
-	@NotNull
+	
 	String optionA;
 	@Size(max = 512)
-	@NotNull
+	
 	String optionB;
 	@Size(max = 512)
-	@NotNull
+	
 	String optionC;
 	@Size(max = 512)
-	@NotNull
+	
 	String optionD;
-	@NotNull
+	
 	char correctOption;
 	public int getSrNo() {
 		return srNo;
