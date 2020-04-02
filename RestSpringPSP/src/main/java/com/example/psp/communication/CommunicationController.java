@@ -35,4 +35,11 @@ public class CommunicationController
 	{
 		CommunicationService.storeQuestions(list);
 	}
+	
+	@GetMapping("deleteCommunicationQuestions")
+	public void deleteQuestions()
+	{
+		CommunicationService.deleteQuestions();
+	}
+	
 }

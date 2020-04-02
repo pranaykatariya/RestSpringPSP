@@ -53,4 +53,10 @@ public class CommunicationService
 		// TODO Auto-generated method stub
 		return repo.findAll();
 	}
+
+
+	public void deleteQuestions() {
+		// TODO Auto-generated method stub
+		repo.deleteAll();
+	}
 }
