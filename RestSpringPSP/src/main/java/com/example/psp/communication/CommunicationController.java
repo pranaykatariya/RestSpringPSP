@@ -32,7 +32,7 @@ public class CommunicationController
 	
 	@PostMapping("storeCommunicationQuestions")
 	public void storeQuestions(@RequestBody List<Communication> list)
-	{
+	{ 
 		CommunicationService.storeQuestions(list);
 	}
 	
