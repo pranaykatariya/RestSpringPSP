@@ -8,8 +8,9 @@ import javax.validation.constraints.Size;
 @Entity
 public class Communication
 {
-	@Id
+	
 	int srNo;
+	
 	@Size(max = 512)
 	
 	String question;
