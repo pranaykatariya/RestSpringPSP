@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.psp.model.Aptitude;
+
 import com.example.psp.model.Response;
 import com.example.psp.model.Technical;
 
