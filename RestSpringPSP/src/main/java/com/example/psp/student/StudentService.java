@@ -49,6 +49,7 @@ public class StudentService
 		return user;
 	}
 
+	
 
 	public void createStudent(Student student)
 	{
@@ -66,6 +67,34 @@ public class StudentService
 	{
 		repo.deleteById(email);
 	}
+	
+	public void saveTechnicalMarks(String email, int technical_marks)
+	{
+		Student student = getStudent(email);
+		student.setTechnical_marks(technical_marks);
+		repo.save(student);
+	}
+	
+	public void saveAptitudeMarks(String email, int aptitude_marks)
+	{
+		Student student = getStudent(email);
+		student.setAptitude_marks(aptitude_marks);
+		repo.save(student);
+	}
+	
+	public void saveCommunicationMarks(String email, int communication_marks)
+	{
+		Student student = getStudent(email);
+		student.setCommunication_marks(communication_marks);
+		repo.save(student);
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		repo.deleteAll();
+		
+	}
+	
 	
 	
 }

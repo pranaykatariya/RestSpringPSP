@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.psp.model.Communication;
+import com.example.psp.model.Response;
+import com.example.psp.student.StudentService;
 
 
 @Service
@@ -18,6 +20,9 @@ public class CommunicationService
 	
 	@Autowired
 	CommunicationRepository repo;
+	
+	@Autowired
+	StudentService studentService;
 	
 	
 	
@@ -59,4 +64,37 @@ public class CommunicationService
 		// TODO Auto-generated method stub
 		repo.deleteAll();
 	}
+	
+	
+	public void calculateMarks(List<Response> list)
+	{
+		for(Response r: list)
+		{
+			System.out.println(r.getCheckedOption()+ " "+ r.getCorrectOption());
+		}
+		
+		int mark = 0;
+		
+		try 
+		{
+			for(int i=0; i < list.size(); i++)
+			{
+				//System.out.println(list.get(i).getCheckedOption() + " " + list.get(i).getCorrectOption());
+				if((Integer.parseInt(list.get(i).getCheckedOption())) == (((int) list.get(i).getCorrectOption().charAt(0)) - 96))
+				{
+					mark+= 1;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exception occured in communication service");
+		}
+		System.out.println("Communication Marks: "+mark);
+		System.out.println(list.get(0).getEmail());
+		studentService.saveCommunicationMarks( list.get(0).getEmail() , mark);
+		
+		
+		
+	}
+	
 }

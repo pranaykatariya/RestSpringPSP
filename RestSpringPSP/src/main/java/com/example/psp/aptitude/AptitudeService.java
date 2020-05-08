@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.psp.model.Aptitude;
+import com.example.psp.model.Response;
+import com.example.psp.student.StudentService;
 
 
 @Service
@@ -18,6 +20,9 @@ public class AptitudeService
 	
 	@Autowired
 	AptitudeRepository repo;
+	
+	@Autowired
+	StudentService studentService; 
 	
 	
 	
@@ -30,10 +35,10 @@ public class AptitudeService
      	
      	int no1 = list.size();
      	
-     	while(no1 >= 16)
+     	while(no1 >= 31)
      	{
      		
-     		list.remove(no.nextInt(15));
+     		list.remove(no.nextInt(30));
      		no1--;
      	}
      	System.out.println(no1);
@@ -47,10 +52,42 @@ public class AptitudeService
 	{
 		repo.saveAll(list);
 	}
+	
+	
 
 
 	public List<Aptitude> getAllQuestions() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
+	}
+	
+	
+	
+	public void calculateMarks(List<Response> list)
+	{
+		for(Response r: list)
+		{
+			System.out.println(r.getCheckedOption()+ " "+ r.getCorrectOption());
+		}
+		
+		int mark = 0;
+		
+		try 
+		{
+			for(int i=0; i < list.size(); i++)
+			{
+				//System.out.println(list.get(i).getCheckedOption() + " " + list.get(i).getCorrectOption());
+				if((Integer.parseInt(list.get(i).getCheckedOption())) == (((int) list.get(i).getCorrectOption().charAt(0)) - 96))
+				{
+					mark+= 1;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exception occured in aptitude service");
+		}
+		System.out.println("Aptitude Marks: "+mark);
+		studentService.saveAptitudeMarks( list.get(0).getEmail() , mark);
+		
 	}
 }

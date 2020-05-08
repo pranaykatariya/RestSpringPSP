@@ -1,8 +1,11 @@
 package com.example.psp.model;
 
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
@@ -23,13 +26,17 @@ public class Student
 	@NotNull
 	private String gender;
 	@NotNull
-	private float SSC_Percentage;
+	@JsonProperty("SSC_Percentage")
+	private int SSC_Percentage;
 	@NotNull
-	private float SSC_Maths;
+	@JsonProperty("SSC_Maths")
+	private int SSC_Maths;
 	@NotNull
-	private float HSC_Percentage;
+	@JsonProperty("HSC_Percentage")
+	private int HSC_Percentage;
 	@NotNull
-	private float HSC_Maths;
+	@JsonProperty("HSC_Maths")
+	private int HSC_Maths;
 	
 	
 	private int aptitude_marks;
@@ -90,35 +97,37 @@ public class Student
 		this.gender = gender;
 	}
 
-	public float getSSC_Percentage() {
+	
+	
+	public int getSSC_Percentage() {
 		return SSC_Percentage;
 	}
 
-	public void setSSC_Percentage(float sSC_Percentage) {
+	public void setSSC_Percentage(int sSC_Percentage) {
 		SSC_Percentage = sSC_Percentage;
 	}
 
-	public float getSSC_Maths() {
+	public int getSSC_Maths() {
 		return SSC_Maths;
 	}
 
-	public void setSSC_Maths(float sSC_Maths) {
+	public void setSSC_Maths(int sSC_Maths) {
 		SSC_Maths = sSC_Maths;
 	}
 
-	public float getHSC_Percentage() {
+	public int getHSC_Percentage() {
 		return HSC_Percentage;
 	}
 
-	public void setHSC_Percentage(float hSC_Percentage) {
+	public void setHSC_Percentage(int hSC_Percentage) {
 		HSC_Percentage = hSC_Percentage;
 	}
 
-	public float getHSC_Maths() {
+	public int getHSC_Maths() {
 		return HSC_Maths;
 	}
 
-	public void setHSC_Maths(float hSC_Maths) {
+	public void setHSC_Maths(int hSC_Maths) {
 		HSC_Maths = hSC_Maths;
 	}
 

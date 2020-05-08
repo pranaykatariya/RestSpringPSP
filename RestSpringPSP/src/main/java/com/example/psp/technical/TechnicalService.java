@@ -1,5 +1,6 @@
 package com.example.psp.technical;
 
+
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.example.psp.model.Aptitude;
 import com.example.psp.model.Response;
 import com.example.psp.model.Technical;
+import com.example.psp.student.StudentService;
 
 
 @Service
@@ -19,19 +21,23 @@ public class TechnicalService
 	@Autowired
 	TechnicalRepository repo;
 	
+	@Autowired
+	StudentService studentService;
+	
 	
 	
 		
 	//Read 15 question from database and show to the rest end points
 	public List<Technical> getQuestions()
 	{
+		
 	    List<Technical> list = repo.findAll();     	
      	Random no = new Random();
      	
      	int no1 = list.size();     	
-     	while(no1 >= 16)
+     	while(no1 >= 31)
      	{     		
-     		list.remove(no.nextInt(15));
+     		list.remove(no.nextInt(30));
      		no1--;
      	}
      	System.out.println(no1);
@@ -57,6 +63,11 @@ public class TechnicalService
 	
 	public void calculateMarks(List<Response> list)
 	{
+		for(Response r: list)
+		{
+			System.out.println(r.getCheckedOption()+ " "+ r.getCorrectOption());
+		}
+		
 		int mark = 0;
 		
 		try 
@@ -73,7 +84,8 @@ public class TechnicalService
 			// TODO: handle exception
 			System.out.println("Exception occured in technical service");
 		}
-		//System.out.println("Technical Marks: "+mark);
+		System.out.println("Technical Marks: "+mark);
+		studentService.saveTechnicalMarks( list.get(0).getEmail() , mark);
 		
 		
 		
