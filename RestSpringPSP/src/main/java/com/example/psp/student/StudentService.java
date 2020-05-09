@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.psp.model.Student;
+import com.example.psp.model.Technical;
 
 @Service
 public class StudentService 
@@ -93,6 +94,11 @@ public class StudentService
 		// TODO Auto-generated method stub
 		repo.deleteAll();
 		
+	}
+	
+	public void storeStudentData(List<Student> list)
+	{
+		repo.saveAll(list);
 	}
 	
 	

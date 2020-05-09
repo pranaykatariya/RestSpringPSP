@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.psp.model.Student;
 import com.example.psp.model.StudentMark;
+import com.example.psp.model.Technical;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -142,4 +143,12 @@ public class StudentController
 		studentService.deleteAll();
 		
 	}
+	
+	@PostMapping("storeStudentData")
+	public void storeTechnicalQuestions(@RequestBody List<Student> list)
+	{
+		studentService.storeStudentData(list);
+	}
+	
+	
 }

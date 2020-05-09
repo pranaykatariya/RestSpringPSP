@@ -28,6 +28,7 @@ public class Student
 	@NotNull
 	@JsonProperty("SSC_Percentage")
 	private int SSC_Percentage;
+	
 	@NotNull
 	@JsonProperty("SSC_Maths")
 	private int SSC_Maths;
@@ -45,9 +46,20 @@ public class Student
 	
 	private int presentation_marks;
 	
+	public int getPresentation_marks() {
+		return presentation_marks;
+	}
+
+	public void setPresentation_marks(int presentation_marks) {
+		this.presentation_marks = presentation_marks;
+	}
+
 	private int technical_marks;
 	
 	private int writing_marks;
+	
+	
+	private String tag;
 
 	public String getEmail() {
 		return email;
@@ -95,6 +107,14 @@ public class Student
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 
 	
@@ -147,13 +167,6 @@ public class Student
 		this.communication_marks = communication_marks;
 	}
 
-	public int getPresentation_marks() {
-		return presentation_marks;
-	}
-
-	public void setPresentation_marks(int presentation_marks) {
-		this.presentation_marks = presentation_marks;
-	}
 
 	public int getTechnical_marks() {
 		return technical_marks;
@@ -177,7 +190,7 @@ public class Student
 				+ ", password=" + password + ", gender=" + gender + ", SSC_Percentage=" + SSC_Percentage
 				+ ", SSC_Maths=" + SSC_Maths + ", HSC_Percentage=" + HSC_Percentage + ", HSC_Maths=" + HSC_Maths
 				+ ", aptitude_marks=" + aptitude_marks + ", communication_marks=" + communication_marks
-				+ ", presentation_marks=" + presentation_marks + ", technical_marks=" + technical_marks
+				+ ", presentation_marks=" + ", technical_marks=" + technical_marks
 				+ ", writing_marks=" + writing_marks + "]";
 	}
 	
