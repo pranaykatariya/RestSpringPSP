@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.psp.model.Writing;
+import com.example.psp.student.StudentService;
 
 
 @Service
@@ -18,6 +19,9 @@ public class WritingService
 	
 	@Autowired
 	WritingRepository repo;
+	
+	@Autowired
+	StudentService studentService;
 	
 	
 	
@@ -42,6 +46,7 @@ public class WritingService
 	}
 	
 	
+	
 	//Store question to the database
 	public void storeQuestions(List<Writing> list)
 	{
@@ -52,5 +57,33 @@ public class WritingService
 	public List<Writing> getAllQuestions() {
 		// TODO Auto-generated method stub
 		return repo.findAll();
+	}
+
+
+
+	public void calculateMarks(String email, String question, String answer) {
+		// TODO Auto-generated method stub
+		
+		String[] words = answer.split("\\s+");
+	    System.out.println(words.length);
+	    float length = words.length;
+	    
+	    if(length > 300)
+	    {
+	    	length = 300;
+	    }
+	    
+	    length = length / 20;
+	    length =  (float) (Math.ceil(length));
+	    
+	    int marks = (int) length;
+	    
+	    
+	    
+//	    studentService.saveTechnicalMarks( email , marks);
+	    studentService.saveWritingMarks(email, marks);
+	    System.out.println("Writing Marks: "+marks);
+	    
+		
 	}
 }

@@ -89,6 +89,13 @@ public class StudentService
 		student.setCommunication_marks(communication_marks);
 		repo.save(student);
 	}
+	
+	public void saveWritingMarks(String email, int writing_marks)
+	{
+		Student student = getStudent(email);		
+		student.setWriting_marks(writing_marks);
+		repo.save(student);
+	}
 
 	public void deleteAll() {
 		// TODO Auto-generated method stub
